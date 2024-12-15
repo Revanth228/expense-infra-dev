@@ -4,12 +4,12 @@ pipeline {
     }
     stages {
         stage('Init') {
-            stage('Init') {
             steps {
-               sh """
-                cd 01-vpc
-                terraform init -reconfigure
-               """
+                sh """
+                 cd 01-vpc
+                 terraform init -reconfigure
+
+                """
             }
         }
         stage('Plan') {
