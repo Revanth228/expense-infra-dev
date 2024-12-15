@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                echo 'This is Build'
+                sh """
+                cd 01-vpc
+                terraform init reconfigure
+                """
             }
         }
         stage('Plan') {
