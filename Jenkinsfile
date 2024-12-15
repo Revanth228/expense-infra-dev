@@ -3,19 +3,15 @@ pipeline {
         label 'AGENT-1'
     }
     stages {
-       stages {
-        stage('Terraform Init') {
+        stage('Init') {
+            stage('Init') {
             steps {
-                script {
-                    // Navigate to the correct directory
-                    dir('01-vpc') {
-                        // Run terraform init with -reconfigure
-                        sh 'terraform init -reconfigure'
-                    }
-                }
+               sh """
+                cd 01-vpc
+                terraform init -reconfigure
+               """
             }
         }
-    }
         stage('Plan') {
             steps {
                echo 'This is Test stage'
