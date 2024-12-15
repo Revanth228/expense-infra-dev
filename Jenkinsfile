@@ -6,6 +6,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh """
+                 aws s3 ls
                  cd 01-vpc
                  terraform init -reconfigure
 
