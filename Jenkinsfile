@@ -35,7 +35,7 @@ pipeline {
                 sh """
                  
                  cd 01-vpc
-                 terraform deploy -auto-approve
+                 terraform apply -auto-approve
 
                 """
             }
