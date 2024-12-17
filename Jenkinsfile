@@ -5,8 +5,15 @@ pipeline {
     options{
         ansiColor('xterm')
     }
+
+    parameters {
+        
+        choice(name: 'action', choices: ['apply', 'plan', 'destroy'], description: 'Pick something')
+    }
+
     stages {
         stage('Init') {
+            
             steps {
                 sh """
                 
