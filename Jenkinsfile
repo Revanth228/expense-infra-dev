@@ -8,7 +8,7 @@ pipeline {
 
     parameters {
         
-        choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: 'Pick something')
+        choice(name: 'action', choices: [ 'apply', 'destroy'], description: 'Pick something')
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
 
             when{
                 expression{
-                    params.action == 'plan'
+                    params.action == 'apply'
                 }
             }
             steps {
