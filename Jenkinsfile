@@ -26,5 +26,8 @@ pipeline {
                 echo 'This is Deploy stage'
             }
         }
+        post{
+            deleteDir()
+        }
     }
 }
