@@ -21,7 +21,7 @@ pipeline {
                sh """
                  
                  cd 01-vpc
-                 terraform plan -auto-approve
+                 terraform plan 
 
                 """
             }
@@ -35,7 +35,7 @@ pipeline {
                 sh """
                  
                  cd 01-vpc
-                 terraform plan -auto-approve
+                 terraform deploy -auto-approve
 
                 """
             }
