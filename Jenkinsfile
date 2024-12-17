@@ -9,7 +9,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh """
-                 aws s3 ls
+                
                  cd 01-vpc
                  terraform init -reconfigure
 
@@ -18,12 +18,26 @@ pipeline {
         }
         stage('Plan') {
             steps {
-               echo 'This is Test stage'
+               sh """
+                 
+                 cd 01-vpc
+                 terraform plan -auto-approve
+
+                """
             }
         }
         stage('Deploy') {
+            input{
+                message "Should we continue??"
+                ok "Yes, we should.."
+            }
             steps {
-                echo 'This is Deploy stage'
+                sh """
+                 
+                 cd 01-vpc
+                 terraform plan -auto-approve
+
+                """
             }
         }
        
